@@ -14,7 +14,6 @@
     ],
     "data": [
         "security/ir.model.access.csv",
-        "data/record_data.xml",
         "views/program_pmt_config.xml",
         "views/proxy_means_test_configuration.xml"
     ],

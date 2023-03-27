@@ -24,7 +24,8 @@
             <xpath expr="//notebook" position="inside">
                 <page string="Configure the PMT">
                     <group>
-                        <!-- <label string="Do you want to use PMT Configuration?" /> -->
+                        <!-- <field name="pmt_config" />
+                        <field name="proxy_means_params_id" attrs="{'invisible':[('pmt_config', '=', False)]}" /> -->
                     </group>
                 </page>
             </xpath>
