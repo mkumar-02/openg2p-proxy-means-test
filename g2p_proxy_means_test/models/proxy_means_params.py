@@ -5,7 +5,7 @@ from odoo import api, fields, models
 class G2PProgram(models.Model):
     _inherit = "g2p.program"
 
-    pmt_config = fields.Boolean(string="Opt for PMT Config")
+    pmt_config = fields.Boolean(string="Enable Proxy Means Test")
     proxy_means_params_id = fields.One2many("g2p.proxy_means_test_params", "program_id", string="PMT Parameters")
     
 class ProxyMeanTestParams(models.Model):
@@ -14,9 +14,18 @@ class ProxyMeanTestParams(models.Model):
     _description = "Proxy Means Test Params"
 
     program_id = fields.Many2one("g2p.program", default= lambda self: self.env.uid)
-    pmt_field = fields.Many2one("g2p.program_membership", string="Field")
+    pmt_field = fields.Selection(selection="_get_fields_label", string="Field")
     pmt_weightage = fields.Float(string="Weightage")  
 
+    def _get_fields_label(self):
+        data = self.env["g2p.program_membership"]
+        
+        print("============= test =============")
+        
+        choice = []
+        for field in data.fields_get_keys():
+            choice.append((field, field))
+        return choice
         
 class G2PProgramMembership(models.Model):
     _inherit = "g2p.program_membership"
@@ -25,20 +34,12 @@ class G2PProgramMembership(models.Model):
         "PMT Score", compute="_compute_pmt_score", store=True
     )
 
-    def name_get(self):
-        result = []
-        for rec in self:
-            for name in rec.fields_get_keys():
-                result.append((rec.id, name))
-
-        return result
-
     @api.depends("program_id")
     def _compute_pmt_score(self):
         data = self.env["g2p.proxy_means_test_params"].search([("program_id", "=", self.program_id.id)])
         score = 0
         for rec in data:
-            score += rec.pmt_weightage
+            score += rec.pmt_weightage 
 
         self.pmt_score = score
 

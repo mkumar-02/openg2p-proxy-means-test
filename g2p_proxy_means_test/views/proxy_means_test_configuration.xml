@@ -53,17 +53,13 @@ Part of OpenG2P. See LICENSE file for full copyright and licensing details.
                             <field name="pmt_weightage" />
                         </group>
                     </group>
-
-                    <!-- <footer>
-                        <button name="add_new_field" type="object" string="+" class="btn-primary" />
-                    </footer> -->
                     
                 </sheet>
             </form>
         </field>
     </record>
 
-    <record id="config_proxy_means_test_filter" model="ir.ui.view">
+    <!-- <record id="config_proxy_means_test_filter" model="ir.ui.view">
         <field name="name">config_proxy_means_test_filter</field>
         <field name="model">g2p.proxy_means_test_params</field>
         <field name="priority" eval="1" />
@@ -71,16 +67,16 @@ Part of OpenG2P. See LICENSE file for full copyright and licensing details.
             <search string="Search Proxy Means Test Configuration">
                 <field name="program_id" />
                 <group expand="0" string="Group By">
-                    <filter string="Program" name="grp_program_id" context="{'group_by': 'program_id'}" />
+                    <filter string="Program" name="grp_program_id" context="{'group_by': 'pmt_field'}" />
                 </group>
-                <!--<searchpanel>
+                searchpanel>
                     <field name="group" icon="fa-users"/>
-                </searchpanel> -->
+                </searchpanel>
             </search>
         </field>
-    </record>
+    </record> -->
 
-    <record id="action_config_proxy_means_test" model="ir.actions.act_window">
+    <!-- <record id="action_config_proxy_means_test" model="ir.actions.act_window">
         <field name="name">Proxy Means Test Configuration</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">g2p.proxy_means_test_params</field>
@@ -95,7 +91,7 @@ Part of OpenG2P. See LICENSE file for full copyright and licensing details.
                 Click the create button to enter a new Proxy Means Test Configuration.
             </p>
         </field>
-    </record>
+    </record> -->
 
     <!--
     <record id="action_config_proxy_means_test_tree_view" model="ir.actions.act_window.view">
