@@ -9,7 +9,7 @@
                 <page string="PMT Configuration">
                     <group>
                         <field name="pmt_config" />
-                        <field name="proxy_means_params_id" attrs="{'invisible':[('pmt_config', '=', False)]}" />
+                        <field name="proxy_means_params_ids" attrs="{'invisible':[('pmt_config', '=', False)]}" />
                     </group>
                 </page>
             </xpath>
@@ -25,7 +25,7 @@
                 <page string="Configure the PMT">
                     <group>
                         <!-- <field name="pmt_config" />
-                        <field name="proxy_means_params_id" attrs="{'invisible':[('pmt_config', '=', False)]}" /> -->
+                        <field name="proxy_means_params_ids" attrs="{'invisible':[('pmt_config', '=', False)]}" /> -->
                     </group>
                 </page>
             </xpath>
